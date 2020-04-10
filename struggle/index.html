@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Struggle for life</title>
+    <meta name="description" content="Stark vereinfachte Modellsimulation für eine Räuber-Beute-Beziehung zwischen Füchsen und Kaninchen sowie Gras als Nahrungsgrundlage zum Ableiten der Lotka-Volterra-Regeln" />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg" />
+    <meta name="keywords" lang="de" content="Lotka-Volterra-Regeln, Räuber-Beute-Beziehung, Parasit-Wirt-Benziehung, Modell, dichteabhängiger Umweltfaktor, Populationsdichte, intraspezifische Nahrungskonkurrenz, innerartlich, zwischenartlich, Generalist, Spezialist, Wachstumsrate" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="daten/css/jsxgraph.css" />
+    <script type="text/javascript" src="daten/js/jsxgraphcore.js"></script>
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data0.js"></script>
+    <script type="text/javascript" src="daten/js/data1.js"></script>
+    <script type="text/javascript" src="daten/js/data2.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24721710-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+     </script> -->
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td class="nach_oben">
+    <table>
+      <tr>
+        <td class="nach_rechts">
+          <label for="a_fuechse">Startanzahl Räuber (Füchse):</label>
+        </td>
+        <td>
+          <select id="a_fuechse" onchange="startanzahl_anpassen('fuechse');">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="22">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+            <option value="49">49</option>
+            <option value="50">50</option>
+            <option value="51">51</option>
+            <option value="52">52</option>
+            <option value="53">53</option>
+            <option value="54">54</option>
+            <option value="55">55</option>
+            <option value="56">56</option>
+            <option value="57">57</option>
+            <option value="58">58</option>
+            <option value="59">59</option>
+            <option value="60">60</option>
+            <option value="61">61</option>
+            <option value="62">62</option>
+            <option value="63">63</option>
+            <option value="64">64</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_kaninchen">Startanzahl Beute (Kaninchen):</label>
+        </td>
+        <td>
+          <select id="a_kaninchen" onchange="startanzahl_anpassen('kaninchen');">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="22">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+            <option value="49">49</option>
+            <option value="50">50</option>
+            <option value="51">51</option>
+            <option value="52">52</option>
+            <option value="53">53</option>
+            <option value="54">54</option>
+            <option value="55">55</option>
+            <option value="56">56</option>
+            <option value="57">57</option>
+            <option value="58">58</option>
+            <option value="59">59</option>
+            <option value="60">60</option>
+            <option value="61">61</option>
+            <option value="62">62</option>
+            <option value="63">63</option>
+            <option value="64">64</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_gras">Startanzahl Produzenten (Gras):</label>
+        </td>
+        <td>
+          <select id="a_gras" disabled="true">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="22">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+            <option value="49">49</option>
+            <option value="50">50</option>
+            <option value="51">51</option>
+            <option value="52">52</option>
+            <option value="53">53</option>
+            <option value="54">54</option>
+            <option value="55">55</option>
+            <option value="56">56</option>
+            <option value="57">57</option>
+            <option value="58">58</option>
+            <option value="59">59</option>
+            <option value="60">60</option>
+            <option value="61">61</option>
+            <option value="62">62</option>
+            <option value="63">63</option>
+            <option value="64">64</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_runde">Spielrunde:</label>
+        </td>
+        <td>
+          <input type="text" id="i_runde" size="4" readonly="true" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="zentriert">
+          <input type="button" id="startknopf" value="Spiel starten" onclick="weiter();" />
+        </td>
+      </tr>
+    </table>
+        </td>
+        <td class="nach_oben">
+          <table id="veraenderungen">
+            <tr>
+              <td class="zentriert">
+                Ausgangsfeld
+              </td>
+              <td class="zentriert">
+                Nachbarfelder
+              </td>
+              <td class="zentriert">
+                Folgezustand für dieses Feld
+              </td>
+            </tr>
+            <tr>
+              <td class="nach_oben">
+                Fuchs
+              </td>
+              <td class="nach_oben">
+                nur Füchse<br />
+                nur Gras<br />
+                mindestens zwei Kaninchen
+              </td>
+              <td class="nach_oben">
+                verhungert ⇒ Gras<br />
+                verhungert ⇒ Gras<br />
+                überlebt ⇒ Fuchs<br />
+              </td>
+            </tr>
+            <tr>
+              <td class="nach_oben">
+                Kaninchen
+              </td>
+              <td class="nach_oben">
+                nur Kaninchen<br />
+                nur Gras<br />
+                mindestens ein Fuchs
+              </td>
+              <td class="nach_oben">
+                stirbt ⇒ Gras<br />
+                überlebt ⇒ Kaninchen<br />
+                wird gefressen ⇒ Fuchs<br />
+              </td>
+            </tr>
+            <tr>
+              <td class="nach_oben">
+                Gras
+              </td>
+              <td class="nach_oben">
+                nur Gras<br />
+                nur Füchse<br />
+                mindestens ein Kaninchen
+              </td>
+              <td class="nach_oben">
+                unverändert ⇒ Gras<br />
+                unverändert ⇒ Gras<br />
+                wird gefressen ⇒ Kaninchen<br />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table><!-- style="border-style:solid;" -->
+      <tr>
+        <td class="nach_oben">
+    <table id="schachbrett">
+      <!-- A bis H -->
+      <tr class="spaltenbeschriftung">
+        <td class="leeres_eckfeld">
+          &nbsp;
+        </td>
+        <td class="spaltenbeschriftung">
+          1
+        </td>
+        <td class="spaltenbeschriftung">
+          2
+        </td>
+        <td class="spaltenbeschriftung">
+          3
+        </td>
+        <td class="spaltenbeschriftung">
+          4
+        </td>
+        <td class="spaltenbeschriftung">
+          5
+        </td>
+        <td class="spaltenbeschriftung">
+          6
+        </td>
+        <td class="spaltenbeschriftung">
+          7
+        </td>
+        <td class="spaltenbeschriftung">
+          8
+        </td>
+      </tr>
+      <!-- A1 bis A8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          A
+        </td>
+        <td>
+          <div id="A1" class="feld"></div>
+        </td>
+        <td>
+          <div id="A2" class="feld"></div>
+        </td>
+        <td>
+          <div id="A3" class="feld"></div>
+        </td>
+        <td>
+          <div id="A4" class="feld"></div>
+        </td>
+        <td>
+          <div id="A5" class="feld"></div>
+        </td>
+        <td>
+          <div id="A6" class="feld"></div>
+        </td>
+        <td>
+          <div id="A7" class="feld"></div>
+        </td>
+        <td>
+          <div id="A8" class="feld"></div>
+        </td>
+      </tr>
+      <!-- B1 bis B8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          B
+        </td>
+        <td>
+          <div id="B1" class="feld"></div>
+        </td>
+        <td>
+          <div id="B2" class="feld"></div>
+        </td>
+        <td>
+          <div id="B3" class="feld"></div>
+        </td>
+        <td>
+          <div id="B4" class="feld"></div>
+        </td>
+        <td>
+          <div id="B5" class="feld"></div>
+        </td>
+        <td>
+          <div id="B6" class="feld"></div>
+        </td>
+        <td>
+          <div id="B7" class="feld"></div>
+        </td>
+        <td>
+          <div id="B8" class="feld"></div>
+        </td>
+      </tr>
+      <!-- C1 bis C8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          C
+        </td>
+        <td>
+          <div id="C1" class="feld"></div>
+        </td>
+        <td>
+          <div id="C2" class="feld"></div>
+        </td>
+        <td>
+          <div id="C3" class="feld"></div>
+        </td>
+        <td>
+          <div id="C4" class="feld"></div>
+        </td>
+        <td>
+          <div id="C5" class="feld"></div>
+        </td>
+        <td>
+          <div id="C6" class="feld"></div>
+        </td>
+        <td>
+          <div id="C7" class="feld"></div>
+        </td>
+        <td>
+          <div id="C8" class="feld"></div>
+        </td>
+      </tr>
+      <!-- D1 bis D8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          D
+        </td>
+        <td>
+          <div id="D1" class="feld"></div>
+        </td>
+        <td>
+          <div id="D2" class="feld"></div>
+        </td>
+        <td>
+          <div id="D3" class="feld"></div>
+        </td>
+        <td>
+          <div id="D4" class="feld"></div>
+        </td>
+        <td>
+          <div id="D5" class="feld"></div>
+        </td>
+        <td>
+          <div id="D6" class="feld"></div>
+        </td>
+        <td>
+          <div id="D7" class="feld"></div>
+        </td>
+        <td>
+          <div id="D8" class="feld"></div>
+        </td>
+      </tr>
+      <!-- E1 bis E8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          E
+        </td>
+        <td>
+          <div id="E1" class="feld"></div>
+        </td>
+        <td>
+          <div id="E2" class="feld"></div>
+        </td>
+        <td>
+          <div id="E3" class="feld"></div>
+        </td>
+        <td>
+          <div id="E4" class="feld"></div>
+        </td>
+        <td>
+          <div id="E5" class="feld"></div>
+        </td>
+        <td>
+          <div id="E6" class="feld"></div>
+        </td>
+        <td>
+          <div id="E7" class="feld"></div>
+        </td>
+        <td>
+          <div id="E8" class="feld"></div>
+        </td>
+      </tr>
+      <!-- F1 bis F8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          F
+        </td>
+        <td>
+          <div id="F1" class="feld"></div>
+        </td>
+        <td>
+          <div id="F2" class="feld"></div>
+        </td>
+        <td>
+          <div id="F3" class="feld"></div>
+        </td>
+        <td>
+          <div id="F4" class="feld"></div>
+        </td>
+        <td>
+          <div id="F5" class="feld"></div>
+        </td>
+        <td>
+          <div id="F6" class="feld"></div>
+        </td>
+        <td>
+          <div id="F7" class="feld"></div>
+        </td>
+        <td>
+          <div id="F8" class="feld"></div>
+        </td>
+      </tr>
+      <!-- G1 bis G8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          G
+        </td>
+        <td>
+          <div id="G1" class="feld"></div>
+        </td>
+        <td>
+          <div id="G2" class="feld"></div>
+        </td>
+        <td>
+          <div id="G3" class="feld"></div>
+        </td>
+        <td>
+          <div id="G4" class="feld"></div>
+        </td>
+        <td>
+          <div id="G5" class="feld"></div>
+        </td>
+        <td>
+          <div id="G6" class="feld"></div>
+        </td>
+        <td>
+          <div id="G7" class="feld"></div>
+        </td>
+        <td>
+          <div id="G8" class="feld"></div>
+        </td>
+      </tr>
+      <!-- H1 bis H8 -->
+      <tr>
+        <td class="zeilenbeschriftung">
+          H
+        </td>
+        <td>
+          <div id="H1" class="feld"></div>
+        </td>
+        <td>
+          <div id="H2" class="feld"></div>
+        </td>
+        <td>
+          <div id="H3" class="feld"></div>
+        </td>
+        <td>
+          <div id="H4" class="feld"></div>
+        </td>
+        <td>
+          <div id="H5" class="feld"></div>
+        </td>
+        <td>
+          <div id="H6" class="feld"></div>
+        </td>
+        <td>
+          <div id="H7" class="feld"></div>
+        </td>
+        <td>
+          <div id="H8" class="feld"></div>
+        </td>
+      </tr>
+    </table>
+        </td>
+        <td class="nach_oben">
+          Füchse,&nbsp;Kaninchen,&nbsp;Gras<br />
+          <textarea id="ergebnis" cols="18" rows="36"></textarea>
+        </td>
+      </tr>
+    </table>
+    <!-- 
+        http://jsxgraph.uni-bayreuth.de/wiki/index.php/Data_plot 
+		http://jsxgraph.uni-bayreuth.de/wiki/index.php?title=Data_plot&action=edit
+	-->
+    <div id="jxgbox" class="jxgbox" style="width:700px; height:500px;"></div>
+	<script>
+	var color = ['red','#ffcc00','green'];
+	var nr = 0;
+	var maxX = 0.0;
+	var maxY = 0.0;
+	var minY = 100000.0;
+
+	var brd = JXG.JSXGraph.initBoard('jxgbox',{boundingbox:[-1, 64, 50, -1],axis:true});
+
+	var plotData = function() {
+		var i, x=[], y1=[], y2=[], y3=[], d;
+		var t = document.getElementById('ergebnis').value;
+		var data = t.split('\n');
+		for (i=0; i < data.length; i++) {
+			d = data[i].split(',');
+			x[i] = i*1.0;
+			y1[i] = d[0]*1.0;
+			y2[i] = d[1]*1.0;
+			y3[i] = d[2]*1.0;
+			if (x[i]>maxX) maxX = x[i];
+			if (y1[i]>maxY) maxY = y1[i];
+			if (y1[i]<minY) minY = y1[i];
+			if (y2[i]>maxY) maxY = y2[i];
+			if (y2[i]<minY) minY = y2[i];
+			if (y3[i]>maxY) maxY = y3[i];
+			if (y3[i]<minY) minY = y3[i];
+		}
+		//brd.setBoundingBox([-1,maxY*1.01,maxX*1.05,minY*0.95]);
+		var c1 = brd.create('curve',[x,y1],{strokeColor:color[0]});
+		var c2 = brd.create('curve',[x,y2],{strokeColor:color[1]});
+		var c3 = brd.create('curve',[x,y3],{strokeColor:color[2]});
+		nr++;
+		brd.update();
+	};
+
+	var clearBoard = function() {
+		JXG.JSXGraph.freeBoard(brd); 
+		brd = JXG.JSXGraph.initBoard('jxgbox',{boundingbox:[-1, 5, 100, -10],axis:true});
+		maxX = 0.0;
+		maxY = 0.0;
+	};
+
+	var clearInput = function() {
+		document.getElementById('in_data').value = '';
+	};
+
+    </script>
+    <p>
+    <a href="http://de.wikipedia.org/wiki/Lotka-Volterra-Regeln" target="_blank">Lotka-Volterra-Regeln</a>|
+    abgewandelt nach <a href="http://www.aulis.de/items/view/materialien-handbuch-kursunterricht-biologie.html" target="_blank">Materialien-Handbuch Kursunterricht Biologie</a> (Band 3/1 Ökologie (I) S. 227-229, L63)
+    </p>
+  </body>
+</html>

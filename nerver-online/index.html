@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Nerver - online</title>
+    <meta name="description" content="Der Nerver veranschaulicht die Erregungsleitung am Axon sowie die Erregungsübertragung am Axon." />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg" />
+    <meta name="keywords" lang="de" content="Neuro-muskuläre Synapse, Erregungsleitung, Erregungsübertragung, Aktionspotenzial, Ruhepotenzial, Neurotransmitter, Acetylcholin, Acetylcholinesterase, Synapsengifte, Nervengifte, Curare, Muscarin, Botox, Botulinustoxin" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24721710-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script> -->
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <label for="s_auswahl">Kapitelauswahl</label>:
+        </td>
+        <td>
+          <select id="s_auswahl" onchange="setze_auswahl()">
+            <optgroup label="Bau der Nervenzelle mit Synapsentypen">
+              <option value="neuro_muskulaer">Neuro-Muskulär</option>
+              <option value="neuro_neuronal">Neuro-Neuronal</option>
+              <option value="neuro_sekretorisch">Neuro-Sekretorisch</option>
+            </optgroup>
+            <optgroup label="Bau der Axonmembran mit Membranproteinen">
+              <option value="kanalproteine">Kanalproteine</option>
+              <option value="carrierproteine">Carrierproteine</option>
+            </optgroup>
+            <optgroup label="Elektrische Erregungsleitung - Chemische Grundlagen">
+              <option value="diffusion">Diffusion</option>
+              <option value="osmose">Osmose</option>
+              <option value="selektiv_permeable_membran">Selektiv permeable Membran</option>
+              <option value="umgebung_der_urzelle">Umgebung der Urzelle</option>
+            </optgroup>
+            <optgroup label="Elektrische Erregungsleitung - Ruhepotenzial">
+              <option value="entstehung">Entstehung</option>
+              <option value="leckstroeme">Leckströme</option>
+              <option value="aufrechterhaltung">Aufrechterhaltung</option>
+            </optgroup>
+            <optgroup label="Elektrische Erregungsleitung - Aktionspotenzial">
+              <option value="depolarisation">Depolarisation</option>
+              <option value="re_und_hyperpolarisation">Re- und Hyperpolarisation</option>
+              <option value="refraktaerphase">Refraktärphase</option>
+            </optgroup>
+            <optgroup label="Elektrische Erregungsleitung - Fortleitung an der Axonmembran">
+              <option value="t1">Zeitpunkt t1</option>
+              <option value="t2">Zeitpunkt t2</option>
+              <option value="t3">Zeitpunkt t3</option>
+            </optgroup>
+            <optgroup label="Chemische Erregungsübetragung - Bau der Synapse">
+              <option value="neuromuskulaere_synapse">Neuro-Muskuläre Synapse</option>
+              <option value="neuroneuronale_synapse">Neuro-Neuronale Synapse</option>
+            </optgroup>
+            <optgroup label="Chemische Erregungsübetragung - An einer neuro-muskulären Synapse">
+              <option value="1">Öffnung der spannungsabhängigen Calciumionenkanäle</option>
+              <option value="2">Exocytose und Diffusion</option>
+              <option value="3">Öffnen der transmitterabhängigen Natriumionenkanäle</option>
+              <option value="4">Natriumeinstrom und Endplattenpotenzial</option>
+              <option value="5">Spaltung und Wiederaufnahme des Neurotransmitters</option>
+            </optgroup>
+            <optgroup label="Chemische Erregungsübetragung - Drogen- und Giftwirkung">
+              <option value="botox">Botulinustoxin</option>
+              <option value="curare">Curare</option>
+              <option value="muscarin">Muscarin</option>
+              <option value="sarin">Sarin</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td class="nach_oben">
+          <a id="a_animationsseite" href="#" target="_blank"><img id="img_schema" src="#" /></a><br />
+          <span class="hinweis">Klicke auf die Abbildung, um eine Informationsseite<br />mit Animation aufzurufen</span>
+        </td>
+        <td class="nach_oben">
+          <div id="div_beschreibung"></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

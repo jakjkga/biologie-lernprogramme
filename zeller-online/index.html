@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Zeller - online</title>
+    <meta name="description" content="Biologie Lernprogramm zum Elektronenmikroskopischen Bild der Ekaryotenzelle bei Tieren und Pflanzen.">
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg">
+    <meta name="keywords" lang="de" content="Eukaryot, Tier, Pflanze, Organell, Zellorganell, Zellmembran, Vesikel, Golgi-Apparat, Dictyosom, Endoplasmatisches Reticulum, Kernhülle, Chromosomen, Ribosom, Zellskelett, Cytoskelett, Centriol, Spindelapparat, Motorproteine, Vakuole, Mitochondrien, Chloroplasten, Zellwand">
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
+    <link href="daten/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <style type="text/css">
+      .nach_oben {
+        vertical-align:top;
+      }
+      #textausgabe {
+        max-width:400px;
+      }
+      .membran {
+        color:#f60;
+        font-weight:bold;
+      }
+      .mito {
+        color:red;
+        font-weight:bold;
+      }
+      .chloro {
+        color:green;
+        font-weight:bold;
+      }
+      .ribo {
+        color:blue;
+        font-weight:bold;
+      }
+      .zytoskel {
+        color:magenta;
+        font-weight:bold;
+      }
+      p {
+        padding:2px;
+      }
+    </style>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24721710-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+     </script> -->
+  </head>
+  <body onload="lade_seite();">
+    <!-- ANFANG Werkzeugleiste -->
+    <nav class="navbar navbar-default" role="navigation"><!-- navbar-inverse  navbar-fixed-top -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- <p class="navbar-text">&nbsp;</p> -->
+      </div>
+      
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <!-- ANFANG Menüpunkt -->
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Zelltyp</a>
+            <ul class="dropdown-menu" id="menuepunkt1">
+              <li><a href="#" id="tierische_zelle" onclick="tuwas(this.id);">Tierische Zelle</a></li>
+              <li><a href="#" id="pflanzliche_zelle" onclick="tuwas(this.id);">Pflanzliche Zelle</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- ENDE Menüpunkt -->
+        <!-- ANFANG Menüpunkt -->
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organell</a>
+            <ul class="dropdown-menu" id="menuepunkt2">
+              <li><a href="#" id="zellwand" onclick="tuwas(this.id);">Zellwand</a></li>
+              <li><a href="#" id="zellmembran" onclick="tuwas(this.id);">Zellmembran</a></li>
+              <li><a href="#" id="vesikel" onclick="tuwas(this.id);">Vesikel</a></li>
+              <li><a href="#" id="vakuole" onclick="tuwas(this.id);">Vakuole</a></li>
+              <li><a href="#" id="golgi_apparat" onclick="tuwas(this.id);">Golgi-Apparat/Dictyosom</a></li>
+              <li><a href="#" id="er" onclick="tuwas(this.id);">Endoplasmatisches Reticulum (ER)</a></li>
+              <li><a href="#" id="freie_ribosomen" onclick="tuwas(this.id);">Freie Ribosomen</a></li>
+              <li><a href="#" id="zellskelett" onclick="tuwas(this.id);">Zellskelett</a></li>
+              <li><a href="#" id="kernhuelle" onclick="tuwas(this.id);">Kernhülle</a></li>
+              <li><a href="#" id="chromosomen" onclick="tuwas(this.id);">Chromosomen</a></li>
+              <li><a href="#" id="zellplasma" onclick="tuwas(this.id);">Zellplasma</a></li>
+              <li><a href="#" id="mitochondrien" onclick="tuwas(this.id);">Mitochondrien</a></li>
+              <li><a href="#" id="chloroplasten" onclick="tuwas(this.id);">Chloroplasten</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- ENDE Menüpunkt -->
+        <!-- ANFANG Menüpunkt -->
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bereiche (Kompartimente)</a>
+            <ul class="dropdown-menu" id="menuepunkt3">
+              <li><a href="#" id="zellaeusseres" onclick="tuwas(this.id);">„Zelläußeres“</a></li>
+              <li><a href="#" id="zellinneres" onclick="tuwas(this.id);">„Zellinneres“</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- ENDE Menüpunkt -->
+        <!-- ANFANG Menüpunkt -->
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kapitelzuordnung</a>
+            <ul class="dropdown-menu" id="menuepunkt4">
+              <li><a href="#" id="stoffwechsel" onclick="tuwas(this.id);">Stoffwechsel</a></li>
+              <li><a href="#" id="genetik" onclick="tuwas(this.id);">Genetik</a></li>
+              <li><a href="#" id="neurophysiologie" onclick="tuwas(this.id);">Neurophysiologie</a></li>
+              <li><a href="#" id="evolution" onclick="tuwas(this.id);">Evolution</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- ENDE Menüpunkt -->
+      </div>
+    </nav>
+    <!-- ENDE Werkzeugleiste -->
+    <!-- ANFANG Seiteninhalt -->
+    <!-- <div class="container"> -->   
+      <table>
+        <tr>
+          <td class="nach_oben">
+            <p>
+              <img id="anzeigebild"
+                   src="" 
+                   alt="Für diese Auswahl konnte kein Bild geladen werden!"
+                   width="400"
+                   height="400" />
+            </p>
+          </td>
+          <td class="nach_oben">
+            <p id="textausgabe">&nbsp;</p>
+          </td>
+        </tr>
+      </table>
+    
+      <p>
+        &nbsp;
+      </p>
+
+    <!-- </div> -->
+    <!-- ENDE Seiteninhalt -->
+    <script src="daten/js/jquery.min.js"></script>
+    <script src="daten/js/bootstrap.min.js"></script>
+    <script src="daten/js/textsammlung.js"></script>
+    <script src="daten/js/scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mendler-online</title>
+    <meta name="description" content="Der Mendler veranschaulicht die Mendelschen Regeln. " />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg" />
+    <meta name="keywords" lang="de" content="Mendelsche Regeln, Mendel, Uniformitätsregel, Spaltungsregel, Rekombinationsregel, Regel von der freien Kombinierbarkeit der Merkmale, dominant-rezessiv, intermediär, kodominant" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24721710-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+   </script> -->
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td class="nach_rechts">
+          <label for="s_erbgang">Erbgangstyp</label>:
+        </td>
+        <td>
+          <select id="s_erbgang" onchange="setze()">
+            <optgroup label="Monohybrid">
+              <option value="mono_X_domrez_X">Monohybrid - dominant/rezessiv</option>
+              <option value="mono_X_intermed_X">Monohybrid - intermediär</option>
+              <option value="mono_X_kodom_X">Monohybrid - kodominant</option>
+            </optgroup>
+            <optgroup label="Dihybrid">
+              <option value="di_un_domrez_domrez">Dihybrid ungekoppelt - dominant/rezessiv &amp; dominant/rezessiv</option>
+              <option value="di_un_domrez_intermed">Dihybrid ungekoppelt - dominant/rezessiv &amp; intermediär</option>
+              <option value="di_un_domrez_kodom">Dihybrid ungekoppelt - dominant/rezessiv &amp; kodominant</option>
+              <option value="di_gekop_domrez_domrez">Dihybrid gekoppelt - dominant/rezessiv &amp; dominant/rezessiv</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="s_generation">Generation</label>:
+        </td>
+        <td>
+          <select id="s_generation" onchange="setze()">
+            <option value="parent">Parental (P)</option>
+            <option value="f1">1. Filial (F1)</option>
+            <option value="f2">2. Filial (F2)</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td class="nach_oben">
+          <img id="img_anzeige" src="#"  />
+        </td>
+        <td class="nach_oben">
+          <div id="div_anzeige"></div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div id="div_anzeige2"></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

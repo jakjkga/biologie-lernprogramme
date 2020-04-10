@@ -1,0 +1,42 @@
+body, table {
+  font-family:"Helvetica-Neue",Helvetica,Arial,sans-serif;
+  font-size:14px;
+}
+select, input[type=text], textarea {
+  border-style:solid;
+  border-width:1px;
+  border-color:#bebebe;
+  padding:2px;
+  background-color:#ffffff;
+}
+select:hover, input[type=text]:hover, textarea:hover {
+  border-color:cornflowerblue;
+}
+.nach_rechts {
+  text-align:right;
+}
+.zentriert {
+  text-align:center;
+}
+.nach_oben {
+  vertical-align:top;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active, a:hover {
+  outline: 0;
+}
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}

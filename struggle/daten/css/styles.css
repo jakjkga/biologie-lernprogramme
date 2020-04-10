@@ -1,0 +1,153 @@
+body, table {
+  font-family:"Helvetica-Neue",Helvetica,Arial,sans-serif;
+  font-size:14px;
+  background-color:#ffffff;
+}
+textarea#ergebnis {
+  border-style:solid;
+  border-color:#bebebe;
+  border-width:1px;
+  border-radius:5px;
+  padding:2px;
+  /*font-family:"Helvetica-Neue",Helvetica,Arial,sans-serif;*/
+  font-size:12px;
+}
+table#veraenderungen {
+  background-color:#ffffff;
+  border-style:dotted;
+  border-width:1px;
+  border-color:#bebebe;
+  border-collapse:collapse;
+}
+table#veraenderungen td {
+  background-color:#ffffff;
+  border-style:dotted;
+  border-width:1px;
+  border-color:#bebebe;
+  border-collapse:collapse;
+  margin:1px;
+  padding:1px;
+}
+textarea#ergebnis:hover {
+  box-shadow: 0 0 1px 1px #369 inset;
+}
+input[type=button] {
+  border-style:solid;
+  border-color:#bebebe;
+  border-width:1px;
+  border-radius:5px;
+  padding:2px;
+  min-width:220px;
+  background-image: -webkit-linear-gradient(white 0%, #9FBFD2 100%); 
+  background-image: -moz-linear-gradient(white 0%, #9FBFD2 100%); 
+  background-image: -o-linear-gradient(white 0%, #9FBFD2 100%); 
+  background-image: linear-gradient(white 0%, #9FBFD2 100%);
+  color:#222222;
+  font-weight:bold;
+}
+input[type=button]:hover {
+  border-color:#000000;
+  color:#000000;
+  cursor:pointer;
+  background-color:#ffffff;
+}
+select, input[type=text] {
+  background-color:#ffffff;
+  border-style:dotted; /* solid oder dotted */
+  border-color:#bebebe;
+  border-width:1px;
+  text-align:right;
+  min-width:60px;
+  padding:0px;
+}
+select:hover {
+  border-color:#ff6600;
+}
+select:disabled:hover {
+  border-color:#bebebe;
+}
+select:disabled {
+  background-color:#ffffff;
+  color:#444444;
+}
+table#schachbrett {
+  margin:0px;
+  padding:0px;
+  border-collapse:collapse;
+  border-style:none;
+  /*
+  border-color:#bebebe;
+  border-width:1px;
+  */
+  background-color:#ffffff;
+}
+table#schachbrett td {
+  margin:0px;
+  padding:0px;
+  border-collapse:collapse;
+  border-style:solid;
+  border-color:#bebebe;
+  border-width:1px;
+}
+table#schachbrett td.spaltenbeschriftung {
+  border-top-style:none;
+  border-left-style:none;
+  border-right-style:none;
+  font-weight:bold;
+  text-align:center;
+  background-color:#ffffff;
+}
+table#schachbrett td.zeilenbeschriftung {
+  border-left-style:none;
+  border-top-style:none;
+  border-bottom-style:none;
+  font-weight:bold;
+  text-align:center;
+  background-color:#ffffff;
+  padding-right:2px;
+}
+table#schachbrett td.leeres_eckfeld {
+  border-style:none;
+  background-color:#ffffff;
+}
+div.feld {
+  padding:0px;
+  margin:0px;
+  border-style:solid;
+  border-color:#ffffff;
+  border-width:1px;
+  height:64px;
+  width:64px;
+  background-image:url(../img/gras64.png);
+}
+div.feld:hover {
+  background-color:yellow;
+}
+.nach_rechts {
+  text-align:right;
+}
+.zentriert {
+  text-align:center;
+}
+.nach_oben {
+  vertical-align:top;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active, a:hover {
+  outline: 0;
+}
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}

@@ -1,0 +1,85 @@
+html,
+body {
+    background-color:white;
+    margin:0px;
+    padding:0px;
+}
+
+#seiteninhalt {
+    position:absolute;
+    top:20px;
+    left:0px;
+    width:450px;
+    height:100%;
+    font-family:Arial, Tahoma, Helvetica, sans-serif;
+    font-size:13px;
+    padding-left:10px;
+    padding-right:10px;
+    background-color:white;
+    color:black;
+}
+
+h1.seiteninhalt,
+h2.seiteninhalt,
+h3.seiteninhalt,
+h4.seiteninhalt,
+h5.seiteninhalt,
+h6.seiteninhalt {
+    color:#369;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+h1.seiteninhalt,
+h2.seiteninhalt {
+   text-align:center;
+}
+
+p.seiteninhalt {
+    font-size:13px;
+}
+
+ul.seiteninhalt {
+    font-size:13px;
+}
+
+ol.seiteninhalt {
+    font-size:13px;
+}
+
+table.seiteninhalt {
+    font-size:13px;
+}
+
+.extern {
+    color:#f00;
+}
+
+.orangefarben {
+    color:#f60;
+    font-weight:bold;
+}
+
+.rotfarben {
+    color:#f00;
+    font-weight:bold;
+}
+
+.blaufarben {
+    color:#00f;
+    font-weight:bold;
+}
+
+.magentafarben {
+    color:#f0f;
+    font-weight:bold;
+}
+
+.gruenfarben {
+    color:#080;
+    font-weight:bold;
+}
+
+.braunfarben {
+    color:#a40;
+    font-weight:bold;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Stammbäumer - online</title>
+    <meta name="description" content="Der Stammbäumer veranschaulicht die Analyse einfacher Stammbäume." />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg" />
+    <meta name="keywords" lang="de" content="Stammbaum, dominanter Erbgang, rezessiver Erbgang, Erbgangsanalyse" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24721710-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+   </script> -->
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          <select id="s_stammbaum" onchange="setze()">
+            <optgroup label="rezessiv">
+              <option value="rezessiv">Gesundes Ehepaar &amp; mindestens ein krankes Kind</option>
+              <option value="rezessiv_autosomal">Gesunder Vater &amp; mindestens eine kranke Tochter, auch gesunde Töchter sind möglich</option>
+              <option value="rezessiv_beides">Gesunder Vater &amp; ausschließlich gesunde Töchter</option>
+            </optgroup>
+            <optgroup label="dominant">
+              <option value="dominant">Krankes Ehepaar &amp; mindestens ein gesundes Kind</option>
+              <option value="dominant_autosomal">Kranker Vater &amp; mindestens eine gesunde Tochter, auch kranke Töchter sind möglich</option>
+              <option value="dominant_beides">Kranker Vater &amp; ausschließlich kranke Töchter</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <img id="img_anzeige" src="#" /><br />
+    <pre id="pre_anzeige"></pre><br />
+    <p><a href="daten/html/uebersicht.html">Erbkrankheiten Übersicht</a></p>
+  </body>
+</html>

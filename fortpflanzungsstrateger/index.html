@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fortpflanzungsstrateger</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <style>
+      h1, h2, h3      {color:#369;}
+      body, table     {font-family:Arial,Helvetica,sans; font-size:14px;line-height:17px;}
+      .mathe          {font-family:Times,sans-serif;font-style:italic;font-size:1.1em;}
+      .nach_rechts    {text-align:right;padding-right:5px;}
+      div#chart_div   {width:600px;height:450px;}
+      table, td       {border-style:none;border-collapse:collapse;padding:2px;}
+      table#auswertungstabelle td {border-style:solid;border-width:1px;border-color:grey;}
+      th              {font-weight:normal;font-style:italic;}
+      td.zahlenwert   {color:blue;}
+      td#formelhintergrund {border-style:none;padding:5px;border-width:1px;border-color:lightgrey;}
+      table#diagramm_u_tab {width:800px;border-style:none;border-width:1px;border-color:grey;}
+      ul, li          {list-style-type:none;display:block;}
+      a.external      {
+         background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAFVBMVEVmmcwzmcyZzP8AZswAZv////////9E6giVAAAAB3RSTlP///////8AGksDRgAAADVJREFUeNoly8kNAAAIwzDO7j8yAfKyKtVEdS3dmiCVH5Mqnt0ofHnitAyLSrkgW6d0pOcHB1nsAZtxWJkeAAAAAElFTkSuQmCC') center right no-repeat;
+        padding-right: 13px;
+      }
+    </style>
+    <!-- Laden der AJAX API -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      function lade_seite() {
+          // MathJax eneut aufrufen zum Aktualisieren der Ansicht
+          MathJax.Hub.Typeset();
+          document.formular1.k_ein.value=1.5;
+          document.formular1.r_ein.value=0.7;
+          document.formular1.start_ein.value=0.1;
+          berechne();
+      }
+      
+      function berechne() {
+          var K=parseFloat(document.formular1.k_ein.value); //Kapazität
+          var r=parseFloat(document.formular1.r_ein.value); //Reproduktionsrate
+          var start=parseFloat(document.formular1.start_ein.value);
+          var meine_daten=[['Generation', 'Beispiel-Art'],];
+          for (var i=0; i <= 10; i++) {
+              var t = String(i);
+              var m = parseFloat(K / ( 1 + ( Math.exp(-r*K*t) * ( K / start - 1 ) ) ));
+              var elem=[ t, m ];
+              meine_daten.push(elem);
+          }
+          drawChart(meine_daten);
+          // Datentabelle ausgeben
+          var datentabelle='<table id="auswertungstabelle"<tr><th>Generation</th><th>Masse</th></tr>';
+          for (var i=0; i <= 10; i++) {
+              var t = String(i);
+              var m = parseFloat(K / ( 1 + ( Math.exp(-r*K*t) * ( K / start - 1 ) ) )).toFixed(4);
+              var zeile='<tr><td class="nach_rechts">'+String(i)+'</td><td class="zahlenwert">'+String(m)+'</td></tr>';
+              datentabelle=datentabelle+zeile;
+          }
+          datentabelle=datentabelle+'</table>';
+          document.getElementById('datentabelle_div').innerHTML=datentabelle;
+      }
+      
+      /* https://google-developers.appspot.com/chart/interactive/docs/gallery/linechart   */
+      // Load the Visualization API and the Chart package.
+      google.load('visualization', '1', {packages:['corechart']});
+      // Set a callback to run when the Google Visualization API is loaded.
+      //google.setOnLoadCallback(drawChart);
+      
+      function drawChart(meine_daten) {
+          var data = google.visualization.arrayToDataTable(meine_daten);
+
+          var options = {
+              /*
+              https://google-developers.appspot.com/chart/interactive/docs/gallery/linechart#Configuration_Options
+              */
+              title: 'Massenwachstum',
+              //y-Achse
+              //vAxis:{title: 'Masse m (in relativen Einheiten)'},
+              //vAxis:{viewWindowMode:'explicit'}, //fixierte Ausschnittsansicht festlegen
+              //vAxis:{viewWindow:{min:0}}, //niedrigster angezeigter Wert
+              //vAxis:{viewWindow:{max:1}}, //höchster angezeigter Wert
+              //vAxis:{baseline:0}, //Lage der Querlinie, welche die y-Achse schneidet
+              vAxis:{minValue:0}, //Niedrigster Wert der ersten unteren Querlinie
+              vAxis:{maxValue:2}, //Höchster Wert der letzten oberen Querlinie
+              //vAxis:{format:'###%'}, //Anzeige in %
+              //vAxis:{gridlines:{count:5}}, //Anzahl der angezeigten Querlinien
+              //x-Achse
+              hAxis:{title: 'Generation'},
+              //Kurventyp: 'none'⇒ gerade Linien, 'function' ⇒ geglättete Kurve
+              curveType:'function',
+              colors:['blue',],
+              //Abstand von linken Rand des äußeren div-Elements
+              chartArea:{left:50,width:570},
+              legend:{position:'bottom'},
+              //width:500
+          };
+          // Instanz der Karte mit den Optionen zeichnen
+          var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+      }
+      
+      
+
+      
+    </script>
+  </head>
+  <body onload="lade_seite();">
+    <h3>K- und r-Strategen anhand ihrer Massenwachstumskurve*</h3>
+    <!-- Eingabe der Zahlenwerte über HTML5 input Felder des Typs number -->
+    <form name="formular1">
+      <table>
+        <tr>
+          <td class="nach_rechts">
+            <label for="k_ein" title="">Kapazität <span class="mathe">K</span></label>
+          </td>
+          <td>
+            <input name="k_ein" type="number" 
+                   min="0.9" max="1.8" step="0.1" 
+                   size="4" value="1.5" 
+                   title="geeignete Werte liegen hier z.B. im Bereich zwischen 0.9 und 1.8"
+                   onchange="berechne();"></input>
+          </td>
+          <td rowspan="4">
+            &nbsp;
+          </td>
+          <td rowspan="3" id="formelhintergrund">
+            <!-- Formeldarstellung mit MathJax -->
+            <div>
+\[
+\begin{aligned}
+m = \frac{K}{ 1 + e^{-r \cdot K \cdot t} \cdot ( \frac{K} {m_{0}} - 1 ) } \\
+\end{aligned} 
+\]
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            <label for="r_ein">Reproduktionsrate <span class="mathe">r</span></label>
+          </td>
+          <td>
+            <input name="r_ein" type="number" 
+                   min="0.2" max="2" step="0.1" 
+                   size="4" value="0.7"
+                   title="geeignete Werte liegen hier z.B. im Bereich zwischen 0.5 und 1.5"
+                   onchange="berechne();"></input>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            <label for="start_ein">Masse <span class="mathe">m<sub>₀</sub></span> zu Beginn</label>
+          </td>
+          <td>
+            <input name="start_ein" type="number" min="0.1" max="0.5" step="0.1" size="4" value="0.1" onchange="berechne();" disabled="disabled"></input>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="button" value="Berechne die Masse m" title="Gib oben einen neuen Wert ein und berechne dann die Massenwachstumkurve neu. Falls der Browser bereits das HTML5-Input Feld vom Typ Number beherrscht (z.B. Google-Chrome), dann ist dieser Knopf unnötig, da dann bei jeder Änderung das Diagramm und die Wertetabelle automatisch aktualisiert werden!"
+             onclick="berechne();"></input>
+          </td>
+          <td class="nach_rechts">
+            Generationen oder Zeit <span class="mathe">t</span>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <table id="diagramm_u_tab">
+      <tr>
+        <td>
+          <div id="chart_div"></div>
+        </td>
+        <td>
+          <div id="datentabelle_div"></div>
+        </td>
+      </tr>
+    </table>
+    <div>* z.B. bei der Neubesiedlung eines Lebensraums</div>
+    <div>
+    <ul><!-- Links: -->
+      <li><a href="https://de.wikipedia.org/wiki/Logistische_Funktion" class="external" title="Wikipedia-Artikel zur Logistischen Funktion" target="_blank">Logistische Funktion</a>,
+          <a href="https://de.wikipedia.org/wiki/Fortpflanzungsstrategie" class="external" title="Wikipedia-Artikel zur Fortpflanzungsstrategie" target="_blank">Fortpflanzungsstrategie</a>
+      <li><a href="https://de.wikipedia.org/wiki/Funktionenplotter" class="external" title="Wikipedia-Artikel zu Funktionenplottern" target="_blank">Funktionenplotter</a>,
+          <a href="https://developers.google.com/chart/" class="external" title="Google Chart Tools" target="_bank">Google Chart Tools</a>
+    </ul>
+    </div>
+  </body>
+</html>

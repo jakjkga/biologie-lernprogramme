@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stoffwechsler - online</title>
+    <meta name="description" content="Biologie Lernprogramm zum Stoffwechsel mit Fotosynthese, Zellatmung und Gärungen" />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg">
+    <meta name="keywords" lang="de" content="Stoffwechsel, Physiologie, Assimilation, Dissimilation, Fotosynthese, Zellatmung" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
+    <link href="daten/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="daten/css/styles.css" rel="stylesheet" media="screen" />
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24721710-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script> -->
+  </head>
+  <body>
+    <!-- ANFANG Werkzeugleiste -->
+    <nav class="navbar navbar-default" role="navigation"><!-- navbar-inverse  navbar-fixed-top -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- <p class="navbar-text">&nbsp;</p> -->
+      </div>
+      
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <!-- ANFANG Menüpunkt -->
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assimilation</a>
+            <ul class="dropdown-menu" id="menuepunkt1">
+              <li><b>&nbsp;&nbsp;Fotosynthese</b></li>
+              <li><a href="#" id="lichtreaktion" onclick="tuwas(this.id);">Lichtreaktion</a></li>
+              <li><a href="#" id="calvinzyklus" onclick="tuwas(this.id);">Calvin-Zyklus</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- ENDE Menüpunkt -->
+        <!-- ANFANG Menüpunkt -->
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dissimilation</a>
+            <ul class="dropdown-menu" id="menuepunkt2">
+              <li><b>&nbsp;&nbsp;Zellatmung</b></li>
+              <li><a href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a></li>
+              <li><a href="#" id="citratzyklus" onclick="tuwas(this.id);">Citratzyklus (mit vorheriger Decarboxylierung)</a></li>
+              <li><a href="#" id="endoxidation" onclick="tuwas(this.id);">Endoxidation</a></li>
+              <li><b>&nbsp;&nbsp;Alkoholische Gärung</b></li>
+              <li><a href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a></li>
+              <li><a href="#" id="decarboxylierung" onclick="tuwas(this.id);">Decarboxylierung der alkoholischen Gärung</a></li>
+              <li><a href="#" id="reduktionsschritt_alk" onclick="tuwas(this.id);">Reduktionsschritt der alkoholischen Gärung</a></li>
+              <li><b>&nbsp;&nbsp;Milchsäuregärung</b></li>
+              <li><a href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a></li>
+              <li><a href="#" id="reduktionsschritt_milch" onclick="tuwas(this.id);">Reduktionsschritt</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- ENDE Menüpunkt -->
+      </div>
+    </nav>
+    <!-- ENDE Werkzeugleiste -->
+    <!-- ANFANG Seiteninhalt -->
+    <!-- <div class="container"> -->
+      <table>
+        <tr>
+          <td class="nach_rechts">
+            Ort in der Zelle:
+          </td>
+          <td>
+            <div id="aus_ort_in_der_zelle" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            Ausgangsstoffe:
+          </td>
+          <td>
+            <div id="aus_ausgangsstoffe" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            Zwischenprodukte:
+          </td>
+          <td>
+            <div id="aus_zwischenprodukte" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            Endstoffe:
+          </td>
+          <td>
+            <div id="aus_endstoffe" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            Bilanz der Energieträger:
+          </td>
+          <td>
+            <div id="aus_energietraeger" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            Bilanz der Reduktionsäquivalente:
+          </td>
+          <td>
+            <div id="aus_reduktionsaequivalente" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            Exergonische Vorgänge:
+          </td>
+          <td>
+            <div id="aus_exergonisch" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="nach_rechts">
+            Endergonische Vorgänge:
+          </td>
+          <td>
+            <div id="aus_endergonisch" class="ausgabebereich">&nbsp;</div>
+          </td>
+        </tr>
+      </table>
+    
+      <p>
+        <input class="meinknopf" type="button" id="membranvorgaenge" value="Membranvorgänge-Schema" onclick="zeige_hilfeseite(this.id);" />
+        <input class="meinknopf" type="button" id="ckoerperschema" value="C-Körperschema" onclick="zeige_hilfeseite(this.id);" />
+      </p>
+
+    <!-- </div> -->
+    <!-- ENDE Seiteninhalt -->
+    <script src="daten/js/jquery.min.js"></script>
+    <script src="daten/js/bootstrap.min.js"></script>
+    <script src="daten/js/data.js"></script>
+    <script src="daten/js/scripts.js"></script>
+  </body>
+</html>

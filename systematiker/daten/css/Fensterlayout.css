@@ -1,0 +1,25 @@
+div#seitenmenue   {/*position:relative;*/
+                   min-width:250px;
+                   min-height:1200px;
+                   margin:2px auto;
+                   padding:2px;
+                   border:solid 1px #bebebe;
+                   background-color:#ffffff;}
+div#hauptfenster {/*position:relative;*/
+                  min-width:750px;
+                  height:90%;
+                  margin:2px auto;
+                  padding:2px;
+                  border:solid 1px #bebebe;
+                  background-color:#ffffff;}
+.infofenster     {width:100%;
+                  min-height:1200px;
+                  background-color:#ffffff;
+                  border:none;}
+table, td        {/*padding:0px;*/
+                  border-style:none;
+                  border-spacing:5px;
+                  /*border-width:0px;*/
+                  vertical-align:top;
+                  /*text-align:left;*/
+                  /*min-height:600px;*/}

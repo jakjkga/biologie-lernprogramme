@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reverse Translator</title>
+    <meta charset="UTF-8">
+    <meta name="AUTHOR" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg">
+    <link rel="stylesheet" 
+          type="text/css" 
+          href="daten/css/stilvorlagen.css" />
+    <script type="text/javascript" 
+            src="daten/scripts/textbausteine.js"></script>
+  </head>
+  <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24721710-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+     </script> -->
+  <body onload="lade_seite();">
+    <table width="660px">
+      <tr>
+        <td class="nach_unten">
+          Wähle zunächst eine der folgenden
+          20 proteinogenen Aminosäuren aus:
+        </td>
+        <td class="nach_unten">
+          Hier werden die möglichen mRNA-<a href="http://de.wikipedia.org/wiki/Genetischer_Code#Codon" target="_blank" title="tallarische Codon-Übersicht">Codons</a>
+          in 5'-3'-Richtung angezeigt: 
+          (also in der Code-Sonne <input type="image" 
+                 src="daten/icons/documentinfo.png" 
+                 onclick="window.open('daten/img/code-sonne.png','_blank');;"
+                 alt="Code-Sonne anzeigen"
+                 title="Code-Sonne anzeigen"> von innen nach außen)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <form id="AS" name="AS">
+          <select id="AS_auswahl" onchange="hole_aktuellen_index('AS', 'AS_auswahl');">
+            <option value="-">&nbsp;</option>
+            <optgroup>
+            <option value="Ala">1 Alanin (Ala)</option>
+            <option value="Arg">2 Arginin (Arg)</option>
+            <option value="Asn">3 Asparagin (Asn)</option>
+            <option value="Asp">4 Asparaginsäure (Asp)</option>
+            <option value="Cys">5 Cystein (Cys)</option>
+            <option value="Gln">6 Glutamin (Gln)</option>
+            <option value="Glu">7 Glutaminsäure (Glu)</option>
+            <option value="Gly">8 Glycin (Gly)</option>
+            <option value="His">9 Histidin (His)</option>
+            <option value="Ile">10 Isoleucin (Ile)</option>
+            <option value="Leu">11 Leucin (Leu)</option>
+            <option value="Lys">12 Lysin (Lys)</option>
+            <option value="Met">13 Methionin (Met), auch Start</option>
+            <option value="Phe">14 Phenylalanin (Phe)</option>
+            <option value="Pro">15 Prolin (Pro)</option>
+            <option value="Ser">16 Serin (Ser)</option>
+            <option value="Thr">17 Threonin (Thr)</option>
+            <option value="Trp">18 Tryptophan (Trp)</option>
+            <option value="Tyr">19 Tyrosin (Tyr)</option>
+            <option value="Val">20 Valin (Val)</option>
+            </optgroup>
+            <optgroup label="··········">
+            <option value="Stop">Stop</option>
+            </optgroup>
+          </select>
+        </form>
+        </td>
+        <td>
+          <form name="Codons" id="Codons">
+            <input name="Codons_in"
+                   id="Codons_in"
+                   type="text"
+                   size="41"
+                   maxlength="45"
+                   class="summenformel"
+                   readonly />
+        </form>
+        </td>
+        <!--<td class="nach_unten">
+          <a href="daten/img/code-sonne.png" target="_blank" type="image/png">
+            <img src="daten/icons/documentinfo.png">
+          </a>
+        </td> -->
+      </tr>
+    </table>
+  </body>
+</html>

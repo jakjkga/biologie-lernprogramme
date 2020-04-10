@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lamassu-Genetik</title>
+    <meta name="description" content="Modell zu den Mendelschen Erbgängen für autosomal monohybride, dihybrid ungekoppelte und dihybrid gekoppelte sowie gonosomal monohybride Erbgänge." />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg" />
+    <meta name="keywords" lang="de" content="Erbgang, Mendel, autosomal, gonosomal, monohybrid, dihybrid, Genkopplung, Entkopplung, Crossing Over, Uniformitätsregel, Spaltungsregel, Rekombinationsregel" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24721710-1']);
+  _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script> -->
+  </head>
+  <body>
+    <div class="mein_absatz">
+    Der putzige <em>Mini-Lamassu</em> veranschaulicht die<br />
+    Mendelschen Vererbungsregeln an einem einfachen Modell.<br />
+    Er besitzt die folgenden charakteristischen Eigenschaften:
+    </div>
+    <table>
+      <tr>
+        <th>
+          &nbsp;
+        </th>
+        <th colspan="4">
+          Genotyp
+        </th>
+        <th>
+          Phänotyp
+        </th>
+      </tr>
+      <tr>
+        <td class="nach_rechts nach_oben">
+          <strong>B</strong>eine:
+        </td>
+        <td class="nach_rechts nach_oben">
+          <select id="s_beine_li" onchange="setze_phaenotyp()">
+            <option value="B" title="dominantes Allel für Beine">B</option>
+            <option value="b" title="rezessives Allel für beinlos">b</option>
+          </select>
+        </td>
+        <td>
+          <img id="img_chr1_li" src="" alt="img_chr1_li" />
+        </td>
+        <td>
+          <img id="img_chr1_re" src="" alt="img_chr1_re" />
+        </td>
+        <td class="nach_oben">
+          <select id="s_beine_re" onchange="setze_phaenotyp()">
+            <option value="B" title="dominantes Allel für Beine">B</option>
+            <option value="b" title="rezessives Allel für beinlos">b</option>
+          </select>
+        </td>
+        <td rowspan="6" class="nach_unten zentriert"><!--  class="nach_oben" -->
+          <img id="img_phaenotyp" src="" alt="alt" /><br />
+          <span id="span_phaenotyp"></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <strong>F</strong>lügel:
+        </td>
+        <td class="nach_rechts">
+          <select id="s_fluegel_li" onchange="setze_phaenotyp()">
+            <option value="F" title="dominantes Allel für Flügel">F</option>
+            <option value="f" title="rezessives Allel für flügellos">f</option>
+          </select>
+        </td>
+        <td rowspan="2">
+          <img id="img_chr2_li" src="" alt="img_chr2_li" />
+        </td>
+        <td rowspan="2">
+          <img id="img_chr2_re" src="" alt="img_chr2_re" />
+        </td>
+        <td>
+          <select id="s_fluegel_re" onchange="setze_phaenotyp()">
+            <option value="F" title="dominantes Allel für Flügel">F</option>
+            <option value="f" title="rezessives Allel für flügellos">f</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <strong>G</strong>roßer&nbsp;Kopf:
+        </td>
+        <td class="nach_rechts">
+          <select id="s_kopf_li" onchange="setze_phaenotyp()">
+            <option value="G" title="dominantes Allel für einen großen Kopf">G</option>
+            <option value="g" title="rezessives Allel für einen Schrumpfkopf">g</option>
+          </select>
+        </td>
+        <td>
+          <select id="s_kopf_re" onchange="setze_phaenotyp()">
+            <option value="G" title="dominantes Allel für einen großen Kopf">G</option>
+            <option value="g" title="rezessives Allel für einen Schrumpfkopf">g</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts nach_oben">
+          <strong>R</strong>ote&nbsp;Farbe&nbsp;und&nbsp;Geschlecht:
+        </td>
+        <td class="nach_rechts nach_oben">
+          <select id="s_farbe_li" onchange="setze_phaenotyp()">
+            <option value="XR" title="dominantes Allel für rote Farbe auf einem X-Chromosom">XR</option>
+            <option value="Xr" title="rezessives Allel für weiß auf einem X-Chromosom">Xr</option>
+          </select>
+        </td>
+        <td>
+          <img id="img_gon_li" src="" alt="img_gon_li" />
+        </td>
+        <td>
+          <img id="img_gon_re" src="" alt="img_gon_re" />
+        </td>
+        <td class="nach_oben">
+          <select id="s_farbe_re" onchange="setze_phaenotyp()">
+            <option value="XR" title="dominantes Allel für rote Farbe auf einem X-Chromosom">XR</option>
+            <option value="Xr" title="rezessives Allel für weiß auf einem X-Chromosom">Xr</option>
+            <option value="Y0" title="fehlendes Allel im Falle eines Y-Chromosoms">Y₀</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

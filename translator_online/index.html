@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Translator - online</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Übersetzung einer Nukleotidsequenz in eine Aminosäuresequenz unter Verwendung des des genetischen Codes">
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg">
+    <meta name="keywords" lang="de" content="Transkription, Translation, mRNA, genetischer Code, RNA-Sonne, Start-Codon, Stopp-Codon, Nukleotidsequenz, Aminosäuresequenz, Primärstruktur">
+    <meta name="keywords" lang="en" content="biology, educational software, drill and practice, private tuition, tutoring, coaching">
+    <link rel="shortcut icon" href="daten/img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">      
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24721710-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+     </script> -->
+  </head>
+  <body>
+    <form>
+      <table>
+        <tr>
+          <td cols="4">
+            <strong>Nukleinsäure-Sequenz</strong>
+          </td>
+        </tr>
+        <tr><!-- codogener DNA-Strang rückwärts -->
+          <td>
+            <label for="r_codogener_strang_rueckwaerts" class="codogen"><input type="radio" id="r_codogener_strang_rueckwaerts" name="r1" onclick="auswahl(this.id);"/>codogener DNA-Strang (rückwärts)</label>
+          </td>
+          <td class="codogen">
+            5'
+          </td>
+          <td>
+            <input type="text" id="in_codogener_strang_rueckwaerts" class="codogen" />
+          </td>
+          <td class="codogen">
+            3'
+          </td>
+        </tr>
+        <tr><!-- codogener DNA-Strang -->
+          <td>
+            <label for="r_codogener_strang" class="codogen"><input type="radio" id="r_codogener_strang" name="r1" onclick="auswahl(this.id);"/>codogener DNA-Strang</label>
+          </td>
+          <td class="codogen">
+            3'
+          </td>
+          <td>
+            <input type="text" id="in_codogener_strang" class="codogen" />
+          </td>
+          <td class="codogen">
+            5'
+          </td>
+        </tr>
+        <tr><!-- code-Strang -->
+          <td>
+            <label for="r_code_strang" class="code"><input type="radio" id="r_code_strang" name="r1" onclick="auswahl(this.id);"/>code-Strang</label>
+          </td>
+          <td class="code">
+            3'
+          </td>
+          <td>
+            <input type="text" id="in_code_strang" class="code" />
+          </td>
+          <td class="code">
+            5'
+          </td>
+        </tr>
+        <tr><!-- mRNA rückwärts -->
+          <td>
+            <label for="r_mrna" class="rna"><input type="radio" id="r_mrna" name="r1" onclick="auswahl(this.id);"/>mRNA</label>
+          </td>
+          <td class="rna">
+            5'
+          </td>
+          <td>
+            <input type="text" id="in_mrna" class="rna" />
+          </td>
+          <td class="rna">
+            3'
+          </td>
+        </tr>
+        <tr>
+          <td cols="4">
+            <strong>Aminosäure-Sequenz (Primärstruktur)</strong>
+          </td>
+        </tr>
+        <tr><!-- Dreibuchstabencode -->
+          <td class="nach_rechts">
+            Dreibuchstabencode:
+          </td>
+          <td>
+            &nbsp;
+          </td>
+          <td>
+            <input type="text" id="dreibuchstabencode" />
+          </td>
+          <td>
+            &nbsp;
+          </td>
+        </tr>
+        <tr><!-- Einbuchstabencode -->
+          <td class="nach_rechts">
+            Einbuchstabencode:
+          </td>
+          <td>
+            &nbsp;
+          </td>
+          <td>
+            <input type="text" id="einbuchstabencode" />
+          </td>
+          <td>
+            &nbsp;
+          </td>
+        </tr>
+        <tr><!-- Meldungen -->
+          <td class="nach_oben nach_rechts">
+            Meldungen:
+          </td>
+          <td>
+            &nbsp;
+          </td>
+          <td>
+            <textarea id="meldungsbereich"></textarea>
+          </td>
+          <td>
+            &nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td cols="2">
+            <input type="button" value="Zurücksetzen für neue Eingabe"  onclick="zurueck_setzen();" />
+          </td>
+          <td>
+            &nbsp;
+          </td>
+          <td>
+            <input type="button" id="b_ermittle_sequenz" value="Aminosäure-Sequenz ermitteln" onclick="ermittle_as_sequenz();" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

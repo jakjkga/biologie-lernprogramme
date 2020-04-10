@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Transkribierer</title>
+    <meta name="description" content="Übe die Transkription ausgehend von einem codogenen DNA-Strang zur mRNA an einer kurzen Nukleotidsequenz" />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg" />
+    <meta name="keywords" lang="de" content="Transkription, komplementäre Basenpaare, Nukleobasen, Adenin, Thymin, Guanin, Cytosin, Uracil, DNA, mRNA, RNA, Proteinbiosynthese" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24721710-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script> -->
+  </head>
+  <body>
+    <!-- http://learn.genetics.utah.edu/content/molecules/transcribe/ -->
+    <p id="auftrag">Ergänze&nbsp;zur&nbsp;Übung&nbsp;den&nbsp;komplementären&nbsp;mRNA-Strang:</p>
+    <table>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_codogen">Codogener&nbsp;DNA-Strang</label>:&nbsp;&nbsp;
+        </td>
+        <td>
+          3'
+        </td>
+        <td>
+          <input type="text" id="i_codogen" size="23" readonly />
+        </td>
+        <td>
+          5'
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_mrna">mRNA</label>:&nbsp;&nbsp;
+        </td>
+        <td>
+          5'
+        </td>
+        <td>
+          <input type="text" id="i_mrna" size="23" />
+        </td>
+        <td>
+          3'
+        </td>
+      </tr>
+    </table>
+    <p id="meldung"></p>
+    <p>⇒&nbsp;weiter&nbsp;zur&nbsp;<a href="http://biologie-lernprogramme.de/daten/programme/js/translator_online/" target="_blank">Translation</a></p>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+.bildnr {font-weight:bold;}
+
+.elternstrang {font-weight:bold;
+               color:green;}
+.enzym {font-weight:bold;
+        color:#f60;}
+
+.leitstrang {font-weight:bold;
+             color:blue;}
+
+.folgestrang {font-weight:bold;}
+
+.ausgegraut {font-weight:bold; color:grey;}
+
+
+
+
+
+
+
+h1,h2,h3,h4,h5,h6  {
+   color:#369;
+   font-family:Arial,Helvetica,sans-serif;
+}
+
+h1,h2 {
+   text-align:center;
+}
+
+.extern {color:#f00; }
+
+img {border:0;}
+
+body#kb {background-color:#789abd;}
+body {font-size:12px; padding:0;margin:0; font-family:helvetica,arial,sans-serif; height:100%;}
+td {font-size:12px; font-family:helvetica,arial,sans-serif;height:100%;}
+
+div#page {width:1000px; margin:0px auto; border:solid 1px #000;height:100%;background-color:#e6e6e6; }
+div#header {width:1000px; height:150px; padding:0px;}
+
+div#menu {background-color:#e6e6e6; width:800px; height:24px; padding-left:200px; text-align:center; font-weight:bold;padding-top:4px;margin-bottom:-6px;background-image:url(http://kronberg.conamic.eu/images/menu_oben_bg_1500002,,,,.gif);background-repeat:y-repeat;}
+div#menu a {padding: 4px 30px; color:#369; text-decoration:none;}
+div#menu a:hover {background-color:#b3b3b3; text-decoration:none;}
+div#menu a.aktiv {background-color:#369; color:#e6e6e6;}
+
+div#menu2 {float:left; width:600px; background-color:#e6e6e6; padding:0;margin:0; font-size:11px; min-height:450px;font-weight:bold;}
+div#menu2 a {text-align:left; background-color:#e6e6e6; padding-left:10px; padding-top:8px; padding-bottom:8px;display:block; text-decoration:none;color:#369;}
+div#menu2 a:hover {background-color:#b3b3b3; text-decoration:none;color:white;}
+div#menu2 a.aktiv {background-color:#369; color:#e6e6e6;}
+
+div#content {float:right;width:760px;padding:20px;min-height:600px;background-color:#fff;}
+
+div#menu span A {color:#369; font-weight:bold; text-decoration:none}
+div#menu span.aktiv A {color:#fff; font-weight:bold; text-decoration:none}
+div#menu2 div A {color:#369; font-weight:bold; padding-left:10px; text-decoration:none}
+div#menu2 div.aktiv A {color:#fff; font-weight:bold; padding-left:10px; text-decoration:none}
+
+div.clear {clear:both;}
+
+@media print {
+  div#header {display:hidden}
+  div#menu {display:hidden}
+  div#menu2 {display:hidden}
+
+  @page {
+  size: 21cm 29.7cm;
+  }
+}

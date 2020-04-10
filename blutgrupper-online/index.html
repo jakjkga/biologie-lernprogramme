@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Blutgrupper - online</title>
+    <meta name="description" content="Der Butgrupper veranschaulicht die Vererbung der Blutgruppeneigenschaften am Beispiel des AB0-Systems." />
+    <meta name="author" content="Joachim Jakob, Kronberg-Gymnasium Aschaffenburg" />
+    <meta name="keywords" lang="de" content="Blutgruppen, ABO-System, Blutspende, Antigen-Antikörper-Reaktion" />
+    <link rel="shortcut icon" href="daten/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="daten/css/styles.css" />
+    <script type="text/javascript" src="daten/js/jquery.min.js"></script>
+    <script type="text/javascript" src="daten/js/data.js"></script>
+    <script type="text/javascript" src="daten/js/scripts.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          lade_seite();
+      });
+    </script>
+    <!-- Google-Analytics -->
+    <!-- <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24721710-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+   </script> -->
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td class="nach_rechts">
+          <label for="s_eigene">Eigene&nbsp;Blutgruppe</label>:
+        </td>
+        <td>
+          <select id="s_eigene" onchange="setze()">
+            <option value="A">„A“</option>
+            <option value="B">„B“</option>
+            <option value="AB">„AB“</option>
+            <option value="0">„0“</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_genotypen">Mögliche&nbsp;Genotypen</label>:
+        </td>
+        <td>
+          <input id="i_genotypen" type="text" readonly />
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts mitte">
+          <label for="img_antigen">Antigene&nbsp;auf&nbsp;den<br />roten&nbsp;Blutkörperchen</label>:
+        </td>
+        <td>
+          <img id="img_antigen" src="#" />
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts mitte">
+          <label for="img_antikoerper">Antikörper&nbsp;im<br />Blutserum</label>:
+        </td>
+        <td>
+          <img id="img_antikoerper" src="#" />
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_blutspender">Mögliche&nbsp;Blut-Spenderblutgruppen</label>:
+        </td>
+        <td>
+          <input id="i_blutspender" type="text" readonly />
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_plasmaspender">Mögliche&nbsp;Plasma-Spenderblutgruppen</label>:
+        </td>
+        <td>
+          <input id="i_plasmaspender" type="text" readonly />
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="s_elter1">Blutgruppe&nbsp;des&nbsp;einen&nbsp;Elternteils</label>:
+        </td>
+        <td>
+          <select id="s_elter1" onchange="setze()">
+            <option value="A">„A“</option>
+            <option value="B">„B“</option>
+            <option value="AB">„AB“</option>
+            <option value="0">„0“</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="nach_rechts">
+          <label for="i_elter1">Mögliche&nbsp;Blutgruppen&nbsp;des&nbsp;anderen&nbsp;Elternteils</label>:
+        </td>
+        <td>
+          <input id="i_elter2" type="text" readonly />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
