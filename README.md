@@ -21,3 +21,4 @@ Diese besagt im Wesentlichen, dass einerseits die Programme frei verändert und 
 * [Bootstrap](https://getbootstrap.com/) Bootstrap is released under the MIT license and is copyright 2019 Twitter.
 * [JSmol](http://sourceforge.net/projects/jmol/files/Jmol/) Jmol is offered under the LGPL License (GNU Lesser General Public License). 
 * [JSXGraph](https://github.com/jsxgraph/jsxgraph) JSXGraph is free software dual licensed under the GNU LGPL or MIT License.
+* [MathJax](https://github.com/mathjax/MathJax/) mathjax/MathJax is licensed under the Apache License 2.0.
