@@ -14,48 +14,45 @@
   </head>
   <body>
     <!-- ANFANG Werkzeugleiste -->
-    <nav class="navbar navbar-default" role="navigation"><!-- navbar-inverse  navbar-fixed-top -->
+    <nav class="navbar-expand navbar-light bg-light" role="navigation"><!-- navbar-inverse  navbar-fixed-top -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="navbar-togglerr-icon"></span>
         </button>
         <!-- <p class="navbar-text">&nbsp;</p> -->
       </div>
       
       <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
         <!-- ANFANG Menüpunkt -->
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assimilation</a>
-            <ul class="dropdown-menu" id="menuepunkt1">
-              <li><b>&nbsp;&nbsp;Fotosynthese</b></li>
-              <li><a href="#" id="lichtreaktion" onclick="tuwas(this.id);">Lichtreaktion</a></li>
-              <li><a href="#" id="calvinzyklus" onclick="tuwas(this.id);">Calvin-Zyklus</a></li>
-            </ul>
-          </li>
-        </ul>
+        <li class="nav-item dropdown" id="menuepunkt1">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Assimilation</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <h6 class="dropdown-header">Fotosynthese</h6>
+            <a class="dropdown-item" href="#" id="lichtreaktion" onclick="tuwas(this.id);">Lichtreaktion</a>
+            <a class="dropdown-item" href="#" id="calvinzyklus" onclick="tuwas(this.id);">Calvin-Zyklus</a>
+          </div>
+        </li>
         <!-- ENDE Menüpunkt -->
         <!-- ANFANG Menüpunkt -->
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dissimilation</a>
-            <ul class="dropdown-menu" id="menuepunkt2">
-              <li><b>&nbsp;&nbsp;Zellatmung</b></li>
-              <li><a href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a></li>
-              <li><a href="#" id="citratzyklus" onclick="tuwas(this.id);">Citratzyklus (mit vorheriger Decarboxylierung)</a></li>
-              <li><a href="#" id="endoxidation" onclick="tuwas(this.id);">Endoxidation</a></li>
-              <li><b>&nbsp;&nbsp;Alkoholische Gärung</b></li>
-              <li><a href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a></li>
-              <li><a href="#" id="decarboxylierung" onclick="tuwas(this.id);">Decarboxylierung der alkoholischen Gärung</a></li>
-              <li><a href="#" id="reduktionsschritt_alk" onclick="tuwas(this.id);">Reduktionsschritt der alkoholischen Gärung</a></li>
-              <li><b>&nbsp;&nbsp;Milchsäuregärung</b></li>
-              <li><a href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a></li>
-              <li><a href="#" id="reduktionsschritt_milch" onclick="tuwas(this.id);">Reduktionsschritt</a></li>
-            </ul>
-          </li>
-        </ul>
+        <li class="nav-item dropdown" id="menuepunkt2">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dissimilation</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <h6 class="dropdown-header">Zellatmung</h6>
+            <a class="dropdown-item" href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a>
+            <a class="dropdown-item" href="#" id="citratzyklus" onclick="tuwas(this.id);">Citratzyklus (mit vorheriger Decarboxylierung)</a>
+            <a class="dropdown-item" href="#" id="endoxidation" onclick="tuwas(this.id);">Endoxidation</a>
+            <h6 class="dropdown-header">Alkoholische Gärung</h6>
+            <a class="dropdown-item" href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a>
+            <a class="dropdown-item" href="#" id="decarboxylierung" onclick="tuwas(this.id);">Decarboxylierung der alkoholischen Gärung</a>
+            <a class="dropdown-item" href="#" id="reduktionsschritt_alk" onclick="tuwas(this.id);">Reduktionsschritt der alkoholischen Gärung</a>
+            <h6 class="dropdown-header">Milchsäuregärung</h6>
+            <a class="dropdown-item" href="#" id="glykolyse" onclick="tuwas(this.id);">Glykolyse</a>
+            <a class="dropdown-item" href="#" id="reduktionsschritt_milch" onclick="tuwas(this.id);">Reduktionsschritt</a>
+          </div>
+        </li>
         <!-- ENDE Menüpunkt -->
+        </ul>
       </div>
     </nav>
     <!-- ENDE Werkzeugleiste -->
@@ -136,7 +133,7 @@
     <!-- </div> -->
     <!-- ENDE Seiteninhalt -->
     <script src="daten/js/jquery.min.js"></script>
-    <script src="daten/js/bootstrap.min.js"></script>
+    <script src="daten/js/bootstrap.bundle.min.js"></script>
     <script src="daten/js/data.js"></script>
     <script src="daten/js/scripts.js"></script>
   </body>

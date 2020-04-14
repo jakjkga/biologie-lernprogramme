@@ -44,73 +44,67 @@
   </head>
   <body onload="lade_seite();">
     <!-- ANFANG Werkzeugleiste -->
-    <nav class="navbar navbar-default" role="navigation"><!-- navbar-inverse  navbar-fixed-top -->
+    <nav class="navbar navbar-expand navbar-light bg-light" role="navigation"><!-- navbar-inverse  navbar-fixed-top -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="navbar-toggler-icon"></span>
         </button>
         <!-- <p class="navbar-text">&nbsp;</p> -->
       </div>
       
       <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="navbar-nav mr-auto">
         <!-- ANFANG Menüpunkt -->
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Zelltyp</a>
-            <ul class="dropdown-menu" id="menuepunkt1">
-              <li><a href="#" id="tierische_zelle" onclick="tuwas(this.id);">Tierische Zelle</a></li>
-              <li><a href="#" id="pflanzliche_zelle" onclick="tuwas(this.id);">Pflanzliche Zelle</a></li>
-            </ul>
-          </li>
-        </ul>
+        <li class="nav-item dropdown" id="menuepunkt1">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zelltyp</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="tierische_zelle" onclick="tuwas(this.id);">Tierische Zelle</a>
+            <a class="dropdown-item" href="#" id="pflanzliche_zelle" onclick="tuwas(this.id);">Pflanzliche Zelle</a>
+          </div>
+        </li>
         <!-- ENDE Menüpunkt -->
         <!-- ANFANG Menüpunkt -->
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organell</a>
-            <ul class="dropdown-menu" id="menuepunkt2">
-              <li><a href="#" id="zellwand" onclick="tuwas(this.id);">Zellwand</a></li>
-              <li><a href="#" id="zellmembran" onclick="tuwas(this.id);">Zellmembran</a></li>
-              <li><a href="#" id="vesikel" onclick="tuwas(this.id);">Vesikel</a></li>
-              <li><a href="#" id="vakuole" onclick="tuwas(this.id);">Vakuole</a></li>
-              <li><a href="#" id="golgi_apparat" onclick="tuwas(this.id);">Golgi-Apparat/Dictyosom</a></li>
-              <li><a href="#" id="er" onclick="tuwas(this.id);">Endoplasmatisches Reticulum (ER)</a></li>
-              <li><a href="#" id="freie_ribosomen" onclick="tuwas(this.id);">Freie Ribosomen</a></li>
-              <li><a href="#" id="zellskelett" onclick="tuwas(this.id);">Zellskelett</a></li>
-              <li><a href="#" id="kernhuelle" onclick="tuwas(this.id);">Kernhülle</a></li>
-              <li><a href="#" id="chromosomen" onclick="tuwas(this.id);">Chromosomen</a></li>
-              <li><a href="#" id="zellplasma" onclick="tuwas(this.id);">Zellplasma</a></li>
-              <li><a href="#" id="mitochondrien" onclick="tuwas(this.id);">Mitochondrien</a></li>
-              <li><a href="#" id="chloroplasten" onclick="tuwas(this.id);">Chloroplasten</a></li>
-            </ul>
-          </li>
-        </ul>
+        <li class="nav-item dropdown" id="menuepunkt2">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organell</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="zellwand" onclick="tuwas(this.id);">Zellwand</a>
+            <a class="dropdown-item" href="#" id="zellmembran" onclick="tuwas(this.id);">Zellmembran</a>
+            <a class="dropdown-item" href="#" id="vesikel" onclick="tuwas(this.id);">Vesikel</a>
+            <a class="dropdown-item" href="#" id="vakuole" onclick="tuwas(this.id);">Vakuole</a>
+            <a class="dropdown-item" href="#" id="golgi_apparat" onclick="tuwas(this.id);">Golgi-Apparat/Dictyosom</a>
+            <a class="dropdown-item" href="#" id="er" onclick="tuwas(this.id);">Endoplasmatisches Reticulum (ER)</a>
+            <a class="dropdown-item" href="#" id="freie_ribosomen" onclick="tuwas(this.id);">Freie Ribosomen</a>
+            <a class="dropdown-item" href="#" id="zellskelett" onclick="tuwas(this.id);">Zellskelett</a>
+            <a class="dropdown-item" href="#" id="kernhuelle" onclick="tuwas(this.id);">Kernhülle</a>
+            <a class="dropdown-item" href="#" id="chromosomen" onclick="tuwas(this.id);">Chromosomen</a>
+            <a class="dropdown-item" href="#" id="zellplasma" onclick="tuwas(this.id);">Zellplasma</a>
+            <a class="dropdown-item" href="#" id="mitochondrien" onclick="tuwas(this.id);">Mitochondrien</a>
+            <a class="dropdown-item" href="#" id="chloroplasten" onclick="tuwas(this.id);">Chloroplasten</a>
+          </div>
+        </li>
         <!-- ENDE Menüpunkt -->
         <!-- ANFANG Menüpunkt -->
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bereiche (Kompartimente)</a>
-            <ul class="dropdown-menu" id="menuepunkt3">
-              <li><a href="#" id="zellaeusseres" onclick="tuwas(this.id);">„Zelläußeres“</a></li>
-              <li><a href="#" id="zellinneres" onclick="tuwas(this.id);">„Zellinneres“</a></li>
-            </ul>
-          </li>
-        </ul>
+        <li class="nav-item dropdown" id="menuepunkt3">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bereiche (Kompartimente)</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="zellaeusseres" onclick="tuwas(this.id);">„Zelläußeres“</a>
+            <a class="dropdown-item" href="#" id="zellinneres" onclick="tuwas(this.id);">„Zellinneres“</a>
+          </div>
+        </li>
         <!-- ENDE Menüpunkt -->
         <!-- ANFANG Menüpunkt -->
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kapitelzuordnung</a>
-            <ul class="dropdown-menu" id="menuepunkt4">
-              <li><a href="#" id="stoffwechsel" onclick="tuwas(this.id);">Stoffwechsel</a></li>
-              <li><a href="#" id="genetik" onclick="tuwas(this.id);">Genetik</a></li>
-              <li><a href="#" id="neurophysiologie" onclick="tuwas(this.id);">Neurophysiologie</a></li>
-              <li><a href="#" id="evolution" onclick="tuwas(this.id);">Evolution</a></li>
-            </ul>
-          </li>
-        </ul>
+        <li class="nav-item dropdown" id="menuepunkt4">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kapitelzuordnung</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="stoffwechsel" onclick="tuwas(this.id);">Stoffwechsel</a>
+            <a class="dropdown-item" href="#" id="genetik" onclick="tuwas(this.id);">Genetik</a>
+            <a class="dropdown-item" href="#" id="neurophysiologie" onclick="tuwas(this.id);">Neurophysiologie</a>
+            <a class="dropdown-item" href="#" id="evolution" onclick="tuwas(this.id);">Evolution</a>
+          </div>
+        </li>
+        
         <!-- ENDE Menüpunkt -->
+        </ul>
       </div>
     </nav>
     <!-- ENDE Werkzeugleiste -->
@@ -140,7 +134,7 @@
     <!-- </div> -->
     <!-- ENDE Seiteninhalt -->
     <script src="daten/js/jquery.min.js"></script>
-    <script src="daten/js/bootstrap.min.js"></script>
+    <script src="daten/js/bootstrap.bundle.min.js"></script>
     <script src="daten/js/textsammlung.js"></script>
     <script src="daten/js/scripts.js"></script>
   </body>

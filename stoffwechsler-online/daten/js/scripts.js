@@ -4,9 +4,9 @@ $('#ckoerperschema').hide();
 var aktuelle_auswahl='';
 
 function tuwas(wer) {
-    var menuepunkt=$('#'+wer).parent('li').parent('ul').attr('id');
-    $('#'+menuepunkt+' li').removeClass('active');
-    $('#'+wer).parent('li').addClass('active');
+    var menuepunkt=$('#'+wer).parent('div').parent('li').attr('id');
+    $('#'+menuepunkt+' a').removeClass('active');
+    $('#'+wer).addClass('active');
     //console.log(wer);
     var ort=texte[wer]['ort'];
     var ed=texte[wer]['ed'];
