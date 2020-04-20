@@ -4,6 +4,10 @@
 
 [biologie-lernprogramme.de](https://biologie-lernprogramme.de)
 
+## Kurzbeschreibung
+
+Die kostenlosen Open Source Biologie-Lernprogramme decken einen Großteil der Oberstufenbiologie ab. Sie können direkt im Webbrowser gestartet und in Lernplattformen eingebettet werden. Übungsaufgaben in Form herkömmlicher Arbeitsblätter mit Lösungen sowie zusätzliche online-Übungen ergänzen das Angebot.
+
 ## Lizenz
 
 ### Didaktisches Konzept, Programmidee, selbst erstellte Mediendateien und ggf. Übungsaufgaben
