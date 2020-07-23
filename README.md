@@ -10,9 +10,9 @@ Die kostenlosen Open Source Biologie-Lernprogramme decken einen Großteil der Ob
 
 ## Lizenz
 
-### Didaktisches Konzept, Programmidee, selbst erstellte Mediendateien und ggf. Übungsaufgaben
+### Didaktisches Konzept, Programmidee, selbst erstellte Mediendateien
 
-Eingebettete Bilder und Animationen, aber auch die Übungsaufgaben mit den Lösungen stehen unter der [CC BY 4.0 DE (Creative Commons, Namensnennung)](https://creativecommons.org/licenses/by/4.0/de/legalcode) Lizenz.
+Alle in diesem Github Repositorium angebotenen Lernprogramme einschließlich der darin ggf. eingebetteten Bilder und Animationen stehen unter der [CC BY 4.0 DE (Creative Commons, Namensnennung)](https://creativecommons.org/licenses/by/4.0/de/legalcode) Lizenz.
 
 
 ### Programmcode:
